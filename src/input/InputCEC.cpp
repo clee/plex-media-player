@@ -237,6 +237,8 @@ int InputCEC::CecKeyPress(void *cbParam, const cec_keypress key)
 
     if (!cmdString.isEmpty())
       cec->sendReceivedInput(CEC_INPUT_NAME, cmdString);
+    else
+      QLOG_DEBUG() << "Unknown keycode in keypress" << key.keycode;
   }
 
   return 0;
